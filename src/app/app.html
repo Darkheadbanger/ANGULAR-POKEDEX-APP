@@ -1,7 +1,9 @@
 <h1>Pokedex</h1>
 <h1>{{ name }}</h1>
 <p>Points de vie : {{ life() }}</p>
-<p>Points de vie double : {{ doubleLife() }}</p>
+<!-- <p>Points de vie double : {{ doubleLife() }}</p> -->
+<p>La taille est : {{ size() }}</p>
+
 <button type="button" (click)="incrementLife()">+</button>
 <button type="button" (click)="decrementLife()">-</button>
 <button type="button" (click)="reset()">Reset</button>

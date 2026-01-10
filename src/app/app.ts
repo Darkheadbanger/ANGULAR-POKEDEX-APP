@@ -10,6 +10,15 @@ export class App {
   name: string = 'Pikachu';
   life: WritableSignal<number> = signal(0);
   doubleLife = computed(() => this.life() + 2);
+  size = computed(() => {
+    if (this.life() >= 0 && this.life() <= 15) {
+      return 'Petit';
+    } else if (this.life() >= 16 && this.life() <= 25) {
+      return 'Moyen';
+    } else {
+      return 'Grand';
+    }
+  });
 
   constructor() {
     effect(() => {
