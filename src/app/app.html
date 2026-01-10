@@ -1,1 +1,4 @@
-<h1>Hello, {{ title }} world</h1>
+<h1>{{ title }}, {{ name }}, {{ life }}</h1>
+<p>Points de vie : {{ life }}</p>
+<button type="button" (click)="incrementLife()">+</button>
+<button type="button" (click)="decrementLife()">-</button>

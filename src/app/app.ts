@@ -7,5 +7,18 @@ import { Component } from '@angular/core';
   styleUrl: './app.css',
 })
 export class App {
-  title = 'angular-pokedex-app';
+  title = 'Angular 21';
+  name = 'Pikachu';
+  life = 2;
+
+  incrementLife() {
+    this.life = this.life + 1;
+  }
+
+  decrementLife() {
+    if (this.life === 0) {
+      return;
+    }
+    this.life = this.life - 1;
+  }
 }
