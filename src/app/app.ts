@@ -7,9 +7,8 @@ import { Component } from '@angular/core';
   styleUrl: './app.css',
 })
 export class App {
-  title = 'Angular 21';
-  name = 'Pikachu';
-  life = 2;
+  name: string = 'Pikachu';
+  life: number = 2;
 
   incrementLife() {
     this.life = this.life + 1;
