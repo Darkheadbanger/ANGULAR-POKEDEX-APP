@@ -20,6 +20,8 @@ export class App {
     }
   });
 
+  imageSrc = signal('/pokemon_flying_arceus.jpg');
+
   constructor() {
     effect(() => {
       console.log('La vie a été mis a jour :', this.life());
