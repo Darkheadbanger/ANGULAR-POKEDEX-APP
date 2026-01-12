@@ -3,7 +3,12 @@
 <p>Points de vie : {{ life() }}</p>
 <!-- <p>Points de vie double : {{ doubleLife() }}</p> -->
 <p>La taille est : {{ size() }}</p>
-<img [src]="imageSrc()" alt="pokemon Archeus" />
+<!-- <img [src]="imageSrc()" alt="pokemon Archeus" /> -->
+@for(pokemon of pokemons(); track pokemon.id){
+<ul>
+  <li>{{ pokemon.name }}</li>
+</ul>
+}
 <button type="button" (click)="decrementLife()" [disabled]="life() <= 0">-</button>
 <button type="button" (click)="incrementLife()" [disabled]="life() >= 30">+</button>
 <button type="button" (click)="reset()">Reset</button>

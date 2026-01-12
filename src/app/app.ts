@@ -1,4 +1,6 @@
 import { effect, computed, Component, signal, WritableSignal } from '@angular/core';
+import { POKEMONS } from './pokemon-fake-list';
+import { Pokemon } from './pokemon.model';
 
 @Component({
   selector: 'app-root',
@@ -41,4 +43,6 @@ export class App {
   reset() {
     this.life.set(0);
   }
+
+  pokemons= signal(POKEMONS);
 }
