@@ -1,14 +1,22 @@
 <h1>Pokedex</h1>
-<h1>{{ name }}</h1>
-<p>Points de vie : {{ life() }}</p>
+<!-- <h1>{{ name }}</h1> -->
+<!-- <p>Points de vie : {{ life() }}</p> -->
 <!-- <p>Points de vie double : {{ doubleLife() }}</p> -->
-<p>La taille est : {{ size() }}</p>
+<!-- <p>La taille est : {{ size() }}</p> -->
 <!-- <img [src]="imageSrc()" alt="pokemon Archeus" /> -->
 @for(pokemon of pokemons(); track pokemon.id){
 <ul>
   <li>{{ pokemon.name }}</li>
+  <li>{{ size(pokemon) }}</li>
+  <li>{{ pokemon.picture }}</li>
+  <li>{{ pokemon.life }}</li>
+  <li>{{ pokemon.dammage }}</li>
+  <li>{{ pokemon.types }}</li>
+  <li>{{ pokemon.created }}</li>
 </ul>
+<button type="button" (click)="decrementLife(pokemon)" [disabled]="pokemon.life <= 0">-</button>
+<button type="button" (click)="incrementLife(pokemon)" [disabled]="pokemon.life >= 30">+</button>
+<button type="button" (click)="reset(pokemon)">Reset</button>
+}@empty {
+<p>Il n'y a pas de pokemon</p>
 }
-<button type="button" (click)="decrementLife()" [disabled]="life() <= 0">-</button>
-<button type="button" (click)="incrementLife()" [disabled]="life() >= 30">+</button>
-<button type="button" (click)="reset()">Reset</button>

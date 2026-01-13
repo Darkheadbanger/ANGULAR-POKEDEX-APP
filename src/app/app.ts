@@ -9,20 +9,22 @@ import { Pokemon } from './pokemon.model';
   styleUrl: './app.css',
 })
 export class App {
+  pokemons = signal(POKEMONS);
+
   name: string = 'Pikachu';
   life: WritableSignal<number> = signal(0);
   doubleLife = computed(() => this.life() + 2);
-  size = computed(() => {
-    if (this.life() >= 0 && this.life() <= 15) {
+  size(pokemon: Pokemon) {
+    if (pokemon.life >= 0 && pokemon.life <= 15) {
       return 'Petit';
-    } else if (this.life() >= 16 && this.life() <= 25) {
+    } else if (pokemon.life >= 16 && pokemon.life <= 25) {
       return 'Moyen';
     } else {
       return 'Grand';
     }
-  });
+  }
 
-  imageSrc = signal('/pokemon_flying_arceus.jpg');
+  // imageSrc = signal('/pokemon_flying_arceus.jpg');
 
   constructor() {
     effect(() => {
@@ -30,19 +32,15 @@ export class App {
     });
   }
 
-  incrementLife(): void {
-    this.life.update((value) => value + 1);
+  incrementLife(pokemon: Pokemon): void {
+    pokemon.life += 1;
   }
 
-  decrementLife(): void {
-    this.life.update((value: number) => {
-      return value === 0 ? 0 : value - 1;
-    });
+  decrementLife(pokemon: Pokemon): void {
+    pokemon.life -= 1;
   }
 
-  reset() {
-    this.life.set(0);
+  reset(pokemon: Pokemon) {
+    pokemon.life = 0;
   }
-
-  pokemons= signal(POKEMONS);
 }
