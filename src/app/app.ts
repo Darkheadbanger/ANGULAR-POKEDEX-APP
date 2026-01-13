@@ -1,10 +1,11 @@
 import { effect, computed, Component, signal, WritableSignal } from '@angular/core';
 import { POKEMONS } from './pokemon-fake-list';
 import { Pokemon } from './pokemon.model';
+import { PokemonBorder } from './pokemon-border';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [PokemonBorder],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

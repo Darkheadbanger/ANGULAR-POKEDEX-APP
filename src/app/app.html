@@ -3,7 +3,7 @@
 
   <div class="pokemon-grid">
     @for(pokemon of pokemons(); track pokemon.id){
-    <div class="pokemon-card">
+    <div class="pokemon-card" appPokemonBorder [pokemonType]="pokemon.types[0]">
       <h2>{{ pokemon.name }}</h2>
       <img [src]="pokemon.picture" [alt]="pokemon.name" [title]="pokemon.name" />
 
@@ -28,11 +28,11 @@
           <span class="label">Niveau:</span>
           <span class="value">
             @if(size(pokemon) === 'Petit') {
-              <span class="badge bg-success">{{ size(pokemon) }}</span>
+            <span class="badge bg-success">{{ size(pokemon) }}</span>
             } @else if(size(pokemon) === 'Moyen') {
-              <span class="badge bg-warning text-dark">{{ size(pokemon) }}</span>
+            <span class="badge bg-warning text-dark">{{ size(pokemon) }}</span>
             } @else {
-              <span class="badge bg-danger">{{ size(pokemon) }}</span>
+            <span class="badge bg-danger">{{ size(pokemon) }}</span>
             }
           </span>
         </div>
