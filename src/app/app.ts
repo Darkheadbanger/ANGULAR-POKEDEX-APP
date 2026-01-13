@@ -12,8 +12,8 @@ export class App {
   pokemons = signal(POKEMONS);
 
   name: string = 'Pikachu';
-  life: WritableSignal<number> = signal(0);
-  doubleLife = computed(() => this.life() + 2);
+  // life: WritableSignal<number> = signal(0);
+  // doubleLife = computed(() => this.life() + 2);
   size(pokemon: Pokemon) {
     if (pokemon.life >= 0 && pokemon.life <= 15) {
       return 'Petit';
@@ -28,7 +28,7 @@ export class App {
 
   constructor() {
     effect(() => {
-      console.log('La vie a été mis a jour :', this.life());
+      console.log('La vie a été mis a jour :', this.pokemons);
     });
   }
 

@@ -1,22 +1,65 @@
-<h1>Pokedex</h1>
-<!-- <h1>{{ name }}</h1> -->
-<!-- <p>Points de vie : {{ life() }}</p> -->
-<!-- <p>Points de vie double : {{ doubleLife() }}</p> -->
-<!-- <p>La taille est : {{ size() }}</p> -->
-<!-- <img [src]="imageSrc()" alt="pokemon Archeus" /> -->
-@for(pokemon of pokemons(); track pokemon.id){
-<ul>
-  <li>{{ pokemon.name }}</li>
-  <li>{{ size(pokemon) }}</li>
-  <li>{{ pokemon.picture }}</li>
-  <li>{{ pokemon.life }}</li>
-  <li>{{ pokemon.dammage }}</li>
-  <li>{{ pokemon.types }}</li>
-  <li>{{ pokemon.created }}</li>
-</ul>
-<button type="button" (click)="decrementLife(pokemon)" [disabled]="pokemon.life <= 0">-</button>
-<button type="button" (click)="incrementLife(pokemon)" [disabled]="pokemon.life >= 30">+</button>
-<button type="button" (click)="reset(pokemon)">Reset</button>
-}@empty {
-<p>Il n'y a pas de pokemon</p>
-}
+<div class="container">
+  <h1>Pokédex</h1>
+
+  <div class="pokemon-grid">
+    @for(pokemon of pokemons(); track pokemon.id){
+    <div class="pokemon-card">
+      <h2>{{ pokemon.name }}</h2>
+      <img [src]="pokemon.picture" [alt]="pokemon.name" [title]="pokemon.name" />
+
+      <div class="pokemon-info">
+        <div class="info-row">
+          <span class="label">PV:</span>
+          <span class="value">{{ pokemon.life }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Dégâts:</span>
+          <span class="value">{{ pokemon.dammage }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Types:</span>
+          <span class="types">
+            @for(type of pokemon.types; track type){
+            <span class="type-badge">{{ type }}</span>
+            }
+          </span>
+        </div>
+        <div class="info-row">
+          <span class="label">Niveau:</span>
+          <span class="value">
+            @if(size(pokemon) === 'Petit') {
+              <span class="badge bg-success">{{ size(pokemon) }}</span>
+            } @else if(size(pokemon) === 'Moyen') {
+              <span class="badge bg-warning text-dark">{{ size(pokemon) }}</span>
+            } @else {
+              <span class="badge bg-danger">{{ size(pokemon) }}</span>
+            }
+          </span>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button
+          type="button"
+          class="btn btn-minus"
+          (click)="decrementLife(pokemon)"
+          [disabled]="pokemon.life <= 0"
+        >
+          -
+        </button>
+        <button type="button" class="btn btn-reset" (click)="reset(pokemon)">Reset</button>
+        <button
+          type="button"
+          class="btn btn-plus"
+          (click)="incrementLife(pokemon)"
+          [disabled]="pokemon.life >= 30"
+        >
+          +
+        </button>
+      </div>
+    </div>
+    }@empty {
+    <p class="no-pokemon">Il n'y a pas de pokémon</p>
+    }
+  </div>
+</div>
