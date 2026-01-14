@@ -4,7 +4,7 @@
   <div class="pokemon-grid">
     @for(pokemon of pokemons(); track pokemon.id){
     <div class="pokemon-card" appPokemonBorder [pokemonType]="pokemon.types[0]">
-      <h2>{{ pokemon.name }}</h2>
+      <h2>{{ pokemon.name | reverse }}</h2>
       <img [src]="pokemon.picture" [alt]="pokemon.name" [title]="pokemon.name" />
 
       <div class="pokemon-info">

@@ -3,10 +3,11 @@ import { POKEMONS } from './pokemon-fake-list';
 import { Pokemon } from './pokemon.model';
 import { PokemonBorder } from './pokemon-border';
 import { DatePipe } from '@angular/common';
+import { ReversePipe } from './reverse-pipe';
 
 @Component({
   selector: 'app-root',
-  imports: [PokemonBorder, DatePipe],
+  imports: [PokemonBorder, DatePipe, ReversePipe],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
