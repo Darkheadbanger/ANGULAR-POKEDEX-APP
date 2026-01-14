@@ -1,4 +1,5 @@
 import { Directive, ElementRef, HostListener, input } from '@angular/core';
+import { PokemonColor } from './pokemon.model';
 
 @Directive({
   selector: '[appPokemonBorder]',
@@ -28,7 +29,8 @@ export class PokemonBorder {
     this.el.nativeElement.style.borderColor = color;
   }
 
-  private getBorderColor() {
+
+  private getBorderColor(): PokemonColor {
     switch (this.pokemonType()) {
       case 'Feu':
         return '#EF5350';
