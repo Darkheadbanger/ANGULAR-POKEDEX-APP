@@ -9,6 +9,11 @@
 
       <div class="pokemon-info">
         <div class="info-row">
+          <span class="label">Date:</span>
+          <span class="value">{{ pokemon.created | date : 'dd/MM/yyyy' }}</span>
+        </div>
+
+        <div class="info-row">
           <span class="label">PV:</span>
           <span class="value">{{ pokemon.life }}</span>
         </div>
